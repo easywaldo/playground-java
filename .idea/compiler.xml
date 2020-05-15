@@ -11,6 +11,6 @@
         <module name="playground-gradle.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="12" />
   </component>
 </project>
