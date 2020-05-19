@@ -36,6 +36,12 @@ public class Main {
         orderList.add(orderData1);
         orderList.add(orderData2);
 
+
+        //Interfaces Conflicted
+        Employee empl = new Employee();
+        System.out.println("empl's id : " + empl.getId());
+        System.out.println("empl's secret id : " + empl.getSecretId());
+
         System.out.println(result);
         System.out.println(target.OrderId());
         System.out.println(last.OrderId());
