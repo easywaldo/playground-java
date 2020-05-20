@@ -179,6 +179,10 @@ public class Main {
         Product product = Product.builder().itemGrade(ItemGradeEnum.BEST).build();
         System.out.println(product.itemGrade);
 
+        // Static Context
+        System.out.println(ItemGradeEnum.getMask());
+
+
 
 
 
