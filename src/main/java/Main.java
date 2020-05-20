@@ -127,6 +127,12 @@ public class Main {
         System.out.println(negateList);
         System.out.println(resultString);
 
+        Officer officer = new Developer(1000);
+        officer.setSalary(500);
+        System.out.println(officer.getSalary());
+        System.out.println(officer.getRole());
+
+
 
 
     }
