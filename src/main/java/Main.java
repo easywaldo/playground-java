@@ -132,8 +132,9 @@ public class Main {
         System.out.println(officer.getSalary());
         System.out.println(officer.getRole());
 
-
-
+        for (String item : testString) {
+            System.out.println(String.format("item is %s", item));
+        }
 
     }
 }
