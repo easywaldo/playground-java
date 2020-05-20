@@ -171,10 +171,13 @@ public class Main {
         System.out.println(arrayList.hashCode());
         System.out.println(shallowCopy);
         System.out.println(arrayList.equals(shallowCopy));
-        
+
         System.out.println(deepCopy);
         System.out.println(deepCopy.hashCode());
         System.out.println(deepCopy.equals(arrayList));
+
+        Product product = Product.builder().itemGrade(ItemGradeEnum.BEST).build();
+        System.out.println(product.itemGrade);
 
 
 
