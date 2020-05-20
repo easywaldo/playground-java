@@ -136,5 +136,49 @@ public class Main {
             System.out.println(String.format("item is %s", item));
         }
 
+        int count = 1;
+        Runnable action = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Runnable with captured variables: " + count);
+            }
+        };
+        action.run();
+
+        String name1 = "Tom";
+        String name2 = "Tom";
+        System.out.println(name1.equals(name2));
+        System.out.println(name1.hashCode());
+        System.out.println(name2.hashCode());
+
+        Officer o1 = new Developer(200);
+        Officer o2 = new Developer(200);
+        System.out.println(o1.hashCode());
+        System.out.println(o2.hashCode());
+        System.out.println(o1.equals(o2));
+
+        ArrayList<String> arrayList = new ArrayList<String>(100);
+        arrayList.add("hello");
+        arrayList.add("world");
+        System.out.println(arrayList.hashCode());
+
+        ArrayList<String> deepCopy = arrayList;
+        ArrayList<String> shallowCopy = (ArrayList<String>) arrayList.clone();
+
+        System.out.println(arrayList.equals(shallowCopy));
+        arrayList.add("foo");
+        arrayList.add("bar");
+        System.out.println(arrayList.hashCode());
+        System.out.println(shallowCopy);
+        System.out.println(arrayList.equals(shallowCopy));
+        
+        System.out.println(deepCopy);
+        System.out.println(deepCopy.hashCode());
+        System.out.println(deepCopy.equals(arrayList));
+
+
+
+
+
     }
 }
