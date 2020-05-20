@@ -7,6 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.IntFunction;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -182,10 +183,16 @@ public class Main {
         // Static Context
         System.out.println(ItemGradeEnum.getMask());
 
+        String[] greetings = Main.repeat(7, "hello world", String[]::new);
+        System.out.println(Arrays.stream(greetings).collect(Collectors.toList()));
+        Integer[] numberArray = Main.repeat(11, 300, Integer[]::new);
+        System.out.println(Arrays.stream(numberArray).collect(Collectors.toList()));
 
+    }
 
-
-
-
+    public static <T> T[] repeat(int n, T obj, IntFunction<T[]> constr) {
+        T[] result = constr.apply(n);
+        for (int i = 0; i < n; i++) result[i] = obj;
+        return result;
     }
 }
