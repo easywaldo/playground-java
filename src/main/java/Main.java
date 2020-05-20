@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -89,15 +90,42 @@ public class Main {
         System.out.println(myCompare.compare(1,5));
         System.out.println(myCompare.compare(4,2));
 
-        Predicate<Integer> myPred = (num) -> {
+        // Predicate Sample
+        Predicate<Integer> greaterThan1000 = (num) -> {
             if (num > 1000) {
                 return  true;
             }
             return false;
         };
-        System.out.println(myPred.test(1000));
+        Predicate<Integer> smallerThan4 = (num) -> {
+            if (num < 4) return true;
+            return false;
+        };
+        Predicate<Integer> isEvenNumber = (num) -> {
+            if (num == 1) return false;
+            if (num % 2 == 0) return true;
+            return false;
+        };
+        System.out.println(greaterThan1000.test(1000));
+        List<Integer> numList = Arrays.asList(1,2,3,4,2000,5000,10000, 3721);
+        List<Integer> greaterList = numList.stream().filter(greaterThan1000).collect(Collectors.toList());
+        System.out.println(greaterList);
+        List<Integer> smallerList = numList.stream().filter(x -> x < 4).collect(Collectors.toList());
+        System.out.println(smallerList);
+        List<Integer> compositList = numList.stream().filter(
+                smallerThan4.and(isEvenNumber)).collect(Collectors.toList());
+        List<Integer> orList = numList.stream().filter(
+                isEvenNumber.or(greaterThan1000)).collect(Collectors.toList());
+        List<Integer> negateList = numList.stream().filter(
+                smallerThan4.or(isEvenNumber).negate()).collect(Collectors.toList());
 
+        List<String> testString = List.of("apple", "lemon", "vanilla", "car", "morning", "labtop", "city");
+        List<String> resultString = StringProcessor.filter(testString, x -> x.length() <= 4).stream().collect(Collectors.toList());
 
+        System.out.println(compositList);
+        System.out.println(orList);
+        System.out.println(negateList);
+        System.out.println(resultString);
 
 
 
