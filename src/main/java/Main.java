@@ -1,10 +1,7 @@
 import model.OrderData;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.IntFunction;
@@ -187,6 +184,121 @@ public class Main {
         System.out.println(Arrays.stream(greetings).collect(Collectors.toList()));
         Integer[] numberArray = Main.repeat(11, 300, Integer[]::new);
         System.out.println(Arrays.stream(numberArray).collect(Collectors.toList()));
+
+
+        // Set
+        Set<String> mySet = new HashSet<String>();
+        mySet.add("apple");
+        mySet.add("water");
+        System.out.println(mySet);
+        mySet.add("apple");
+        mySet.add("melon");
+        mySet.add("cherry");
+
+        // TreeSet
+        TreeSet<String> myTreeSet = new TreeSet();
+        myTreeSet = new TreeSet<>((a, b) -> a.equals(b) ? 0 : a.equals("kakao") ? -1 : 1);
+        myTreeSet.add("cherry");
+        myTreeSet.add("apple");
+        myTreeSet.add("melon");
+        myTreeSet.add("water");
+        myTreeSet.add("kakao");
+        System.out.println(myTreeSet);
+
+        // Iterable
+        Iterator<String> myIter = myTreeSet.iterator();
+        while(myIter.hasNext()) {
+            System.out.println(myIter.next());
+            myIter.remove();
+        }
+        System.out.println("after removed : " + myTreeSet);
+
+        // Linked List
+        List<String> friends = new LinkedList<>();
+        ListIterator<String> listIterator = friends.listIterator();
+        listIterator.add("tom");
+        listIterator.add("berry");
+        listIterator.previous();
+        listIterator.add("bob");
+        while (listIterator.hasNext()) {
+            System.out.println(listIterator.next());
+        }
+
+
+        // HashMap
+        Map<String, Integer> counts = new HashMap<>();
+        counts.put("Team", 1);
+        counts.put("Bob", 20);
+        System.out.println(counts.get("Team"));
+        System.out.println(counts.getOrDefault("Roa", 0));
+        System.out.println(counts.merge("james", 100, Integer::sum));
+        System.out.println(counts);
+        counts.merge("james", 100, Integer::sum);
+        System.out.println(counts);
+
+
+        // Stack
+        Stack<String> myStack = new Stack<String>();
+        myStack.push("apple");
+        myStack.add("banana");
+        System.out.println(myStack);
+        System.out.println(myStack.pop());
+        System.out.println(myStack);
+
+
+        // Priority Queue
+        PriorityQueue<Integer> myPriority = new PriorityQueue<>();
+        myPriority.add(10);
+        myPriority.add(3);
+        myPriority.add(7);
+        myPriority.add(2);
+        myPriority.add(1);
+        System.out.println(myPriority);
+        for(Integer q : myPriority) {
+            System.out.println(q);
+        }
+        System.out.println("");
+        while (myPriority.size() > 0) {
+            System.out.println(myPriority.remove());
+        }
+
+
+        // Map
+        Map<Integer, String> myMap = Map.of(1, "start", 20, "moon", 5, "earth", 7, "sun");
+//        myMap.put(1, "star");
+//        myMap.put(20, "moon");
+//        myMap.put(5, "earth");
+//        myMap.put(7, "sun");
+        System.out.println(myMap);
+
+        // Set
+        Set<Integer> nList = Set.of(1,10, 5, 7, 9, 20, 100, 900, 200, 600, 500);
+        List<Integer> sortedList = nList.stream().sorted().collect(Collectors.toList());
+        System.out.println(nList);
+        System.out.println(sortedList);
+
+        // Sub List
+        List<Integer> subList = sortedList.subList(0, 3);
+        System.out.println(subList);
+        //sortedList.add(1000);
+
+        // ArrayList
+        ArrayList<Integer> arrayList1 = new ArrayList<>();
+        arrayList1.add(10);
+        arrayList1.add(5);
+        arrayList1.add(7);
+        System.out.println(arrayList1);
+        List<Integer> subList1 = arrayList1.subList(arrayList1.size() -3, arrayList1.size() -1);
+        System.out.println(subList1);
+        subList1.add(100);
+        //arrayList1.add(100);  //error raised  // why??
+        System.out.println(subList1);
+
+
+
+
+
+
 
     }
 
