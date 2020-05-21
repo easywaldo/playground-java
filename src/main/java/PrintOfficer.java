@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class PrintOfficer {
@@ -14,6 +14,11 @@ public class PrintOfficer {
             Officer d = (Officer) developer.get(i);
             System.out.println("salary is : " + d.getSalary());
         }
+    }
+
+    public static <T> void printAnything(T t) {
+        System.out.println(t.getClass().getPackageName());
+        System.out.println(t.getClass().getTypeName());
     }
 
 }

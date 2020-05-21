@@ -300,7 +300,7 @@ public class Main {
         PrintOfficer.printOfficer(developers);
         PrintOfficer.printDeveloper(backendDevelopers);
 
-
+        PrintOfficer.printAnything(List.of(1,2,3));
 
     }
 
