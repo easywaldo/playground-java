@@ -8,6 +8,7 @@ public class Officer {
 
     public Officer(double basicAmt) {
         this.basicAmt = basicAmt;
+        this.setSalary(0);
     }
 
     public void setSalary(double salary) {

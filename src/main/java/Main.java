@@ -295,8 +295,10 @@ public class Main {
         System.out.println(subList1);
 
 
-
-
+        List<Developer> developers = List.of(new Developer(5000), new Developer( 7000));
+        List<BackendDeveloper> backendDevelopers = List.of(new BackendDeveloper(6000), new BackendDeveloper(8000));
+        PrintOfficer.printOfficer(developers);
+        PrintOfficer.printDeveloper(backendDevelopers);
 
 
 
